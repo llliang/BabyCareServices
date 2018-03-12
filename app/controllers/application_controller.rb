@@ -1,11 +1,15 @@
 class ApplicationController < ActionController::API
-<<<<<<< HEAD
+
+    before_action :validateToken
+
+    def validateToken
+      token = params[:token]
+    end
 
     module ErrorCode
         ErrorCode::Registered = 10001 # 已注册
     end
 
-    
     def echo(obj, code = 200, msg = "")
         result = Hash.new
         
@@ -14,6 +18,4 @@ class ApplicationController < ActionController::API
         result[:msg] = msg
       render json: result
     end
-=======
->>>>>>> 4e1fb1fed3a736323276f1a2a12e38872bb78e97
 end
